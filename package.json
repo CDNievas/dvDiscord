@@ -1,0 +1,15 @@
+{
+  "name": "dvdiscord",
+  "version": "1.0.0",
+  "description": "DaVinci bot for Discord",
+  "main": "app.js",
+  "scripts": {
+    "start":"node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "CDNievas",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.1.1"
+  }
+}
