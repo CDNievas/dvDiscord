@@ -1,5 +1,8 @@
+const fs = require("fs"); 
+
 // Prefix commands
 const prefix = "!";
+const folderAsis = "/home/cdn/Escritorio/"
 
 // Handler
 exports.analizarMsg = analizarMsg;
@@ -26,6 +29,8 @@ function analizarMsg(message){
         start(message);
     } else if (checkComm(message,"help")){
         help(message);
+    } else if(checkComm(message,"asistencia")){
+        asistencia(message);
     } else if (checkComm(message,"")){
         message.channel.send("Si necesitas ayuda tipea el comando !help");
     }
@@ -80,5 +85,46 @@ function help(message){
     let msg = "!register <grupo> <nombre_completo> sin los <>\n" +
     "Por ejemplo: !register github Christian Dario Nievas\n";
     message.channel.send(msg);
+
+}
+
+function asistencia(message){
+
+    if(message.member.id === "200787812977475584"){
+
+        let voiceChannel = message.member.voice.channel
+        if(voiceChannel !== null){
+            
+            let msgArr = message.content.split(" ")
+            
+            if(msgArr.length == 2){
+
+                let alumnos = message.member.voice.channel.members;
+                
+                strToPrint = ""
+
+                for (let alumno of alumnos){
+                    strToPrint = strToPrint + alumno[1].nickname + "\n";
+                }
+
+                var writeStream = fs.createWriteStream(folderAsis + msgArr[1] + ".txt");
+                writeStream.write(strToPrint);
+                writeStream.end();
+
+            } else {
+
+                message.channel.send("Te faltan parametros");
+
+            }
+    
+        } else {
+
+            message.channel.send("No estas conectado a ningun canal de voz");
+
+        }
+
+    } else {
+        message.channel.send("Vos no sos el profesor pillin :)");
+    }
 
 }
