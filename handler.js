@@ -2,7 +2,7 @@ const fs = require("fs");
 
 // Prefix commands
 const prefix = "!";
-const folderAsis = "/home/cdn/Escritorio/"
+const folderAsis = "/home/pi/Desktop/"
 
 // Handler
 exports.analizarMsg = analizarMsg;
@@ -103,9 +103,14 @@ function asistencia(message){
                 
                 strToPrint = ""
 
+		alumnos.forEach((guildMember, guildMemberID) => {
+		    strToPrint = strToPrint + guildMember.displayName + "\n";
+		});		
+		
+		/*
                 for (let alumno of alumnos){
                     strToPrint = strToPrint + alumno[1].nickname + "\n";
-                }
+                }*/
 
                 var writeStream = fs.createWriteStream(folderAsis + msgArr[1] + ".txt");
                 writeStream.write(strToPrint);
