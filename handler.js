@@ -116,6 +116,8 @@ function asistencia(message){
                 writeStream.write(strToPrint);
                 writeStream.end();
 
+		message.channel.send("Asistencia tomada");
+
             } else {
 
                 message.channel.send("Te faltan parametros");
