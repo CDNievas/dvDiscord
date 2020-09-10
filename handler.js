@@ -56,18 +56,48 @@ function register(message){
 	    return;
 	}
 
-        if(group.toUpperCase() == "GITHUB"){
+	group = group.toUpperCase();
+	
+        if(group === "GITHUB"){
 
             let role = message.guild.roles.cache.find(r => r.name === "GitHub");
             message.member.setNickname(name)
             message.member.roles.add(role);
 	    console.log("Añadi rol a " + name );
 
+        } else if (group === "APPSMOBILETM") {
+
+            let role = message.guild.roles.cache.find(r => r.name === "AppsMobileTM");
+            message.member.setNickname(name)
+            message.member.roles.add(role);
+	    console.log("Añadi rol a " + name );
+
+        } else if (group === "APPSMOBILETN") {
+
+            let role = message.guild.roles.cache.find(r => r.name === "AppsMobileTN");
+            message.member.setNickname(name)
+            message.member.roles.add(role);
+	    console.log("Añadi rol a " + name );
+
+        } else if (group === "DDS") {
+
+            let role = message.guild.roles.cache.find(r => r.name === "DDS");
+            message.member.setNickname(name)
+            message.member.roles.add(role);
+	    console.log("Añadi rol a " + name );
+
+        } else if (group === "PLATDEV") {
+
+            let role = message.guild.roles.cache.find(r => r.name === "Plat.Dev");
+            message.member.setNickname(name)
+            message.member.roles.add(role);
+	    console.log("Añadi rol a " + name );
+
         } else {
-
-            message.channel.send("Ese grupo no existe");
-
-        }
+	
+            message.channel.send("Ese grupo no existe");	
+		
+	}
 
     } else {
 
